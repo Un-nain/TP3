@@ -46,19 +46,19 @@ $test->setTitre(13);
 $test->display();
 echo '<br>';*/
 $teste=new equipe("eloi",0);
-$teste->display();
+//$teste->display();
 echo "\n";
 $testee=new equipe("alexandre",1);
-$testee->display();
+//$testee->display();
 echo "\n";
 $testeee=new equipe("paul",3);
-$testeee->display();
+//$testeee->display();
 echo "\n";
 $testeeee=new equipe("quentin",2);
-$testeeee->display();
+//$testeeee->display();
 
 echo "\n";
-equipe::displays();
+//equipe::displays();
 ?>
 
 <br>
@@ -67,8 +67,8 @@ equipe::displays();
 <?php
 class Formulaire
 {
-private $html = "";
-private $interieur = "";
+protected $html = "";
+protected $interieur = "";
 function __construct($fichier, $method)
 {
 $this->html .= "<form method='$method' action='$fichier'>";
@@ -88,7 +88,7 @@ $p1 = new Formulaire("TP6.php","post");
 $p1->ajouterzonetexte("Votre nom :");
 $p1->ajouterzonetexte("Votre code :");
 $p1->ajouterbouton();
-echo $p1->getform();
+//echo $p1->getform();
 
 ?>
 
@@ -112,7 +112,7 @@ echo $p1->getform();
         type="radio"
         name="12"
         value="femelle">
-    <button value="submit" name="sub">Submit</button>
+    <button value="submit" name="sub">Submit</button>>
 </form>
 <?php
 class recup{
@@ -136,4 +136,26 @@ function __construct(){
 
 
 $test = new recup();
-$test->display();
+//$test->display();
+?>
+<br><hr><hr><br>
+
+<?php
+final class form2 extends formulaire {
+    final function radio(){
+        $this->html .="H:<input
+        type='radio'
+        name='12'
+        value='male'>";
+
+    }
+
+}
+$p2 =new form2();
+$p2->ajouterzonetexte("Votre nom :");
+$p2->ajouterzonetexte("Votre code :");
+$p2->ajouterbouton();
+$p2->radio();
+echo $p2->getform();
+
+
